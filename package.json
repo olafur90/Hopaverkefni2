@@ -4,7 +4,11 @@
   "description": "Verkefnið felst í því að smíða vef lítinn myndbandavef sem nýtir gögn úr JSON skrá.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "browser-sync": "browser-sync start --server --files index.html sites/*.html styles.css",
+    "sass": "node-sass styles/styles.scss styles.css",
+    "sass-watch": "node-sass --source-map-embed --watch styles/styles.scss --recursive styles.css",
+    "dev": "concurrently npm:browser-sync npm:sass npm:sass-watch npm:node-sass eslint stylelint"
   },
   "keywords": [],
   "author": "",
