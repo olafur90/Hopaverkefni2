@@ -5,11 +5,13 @@ img.setAttribute('alt', 'back button');
 
 document.body.appendChild(img);
 
+let request = new XMLHttpRequest();
 
+request.open('GET', '../videos.json' );
 /*function el(name, ...children) {
   const element = document.createElement(name);
 
-  for (let child of children) { /*e eslint-disable-line
+  for (let child of children) {eslint-disable-line
     if (typeof child === 'string') {
       element.appendChild(document.createTextNode(child));
     } else if (child) {
@@ -18,8 +20,9 @@ document.body.appendChild(img);
   }
 
   return element;
-}*/
-/*document.addEventListener('DOMContentLoaded', () => {
+}
+
+document.addEventListener('DOMContentLoaded', () => {
   let results;
 
   fetch('../videos.json')
@@ -35,10 +38,10 @@ document.body.appendChild(img);
   console.log(x);
 })
 
-*/
 
 
-/*function showResults(results) {
+
+function showResults(results) {
 
   const [{
     id,
@@ -56,4 +59,5 @@ document.body.appendChild(img);
 
 
   results.appendChild(element);
-} */
+}
+*/
