@@ -5,10 +5,7 @@ img.setAttribute('alt', 'back button');
 
 document.body.appendChild(img);
 
-let request = new XMLHttpRequest();
-
-request.open('GET', '../videos.json' );
-/*function el(name, ...children) {
+function el(name, ...children) {
   const element = document.createElement(name);
 
   for (let child of children) {eslint-disable-line
@@ -21,25 +18,6 @@ request.open('GET', '../videos.json' );
 
   return element;
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  let results;
-
-  fetch('../videos.json')
-    .then(function(result) {
-        return result.json();
-    })
-    .then(function(data) {
-      results = data;
-    });
-
-  console.log(results);
-  let x = results[1];
-  console.log(x);
-})
-
-
-
 
 function showResults(results) {
 
@@ -60,4 +38,35 @@ function showResults(results) {
 
   results.appendChild(element);
 }
+
+fetch('../videos.json')
+  .then((result) => {
+    if(!result.ok) {
+      throw new Error('Non 200 status');
+    }
+
+    console.log(result.json);
+  })
+    .then((data) => {
+      showResults(data.results);
+    })
+
+
+
+/*
+document.addEventListener('DOMContentLoaded', () => {
+  let results;
+
+  fetch('../videos.json')
+    .then(function(result) {
+        return result.json();
+    })
+    .then(function(data) {
+      results = data;
+    });
+
+  console.log(results);
+  let x = results[1];
+  console.log(x);
+})
 */
