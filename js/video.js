@@ -23,15 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let results;
 
   fetch('../videos.json')
-    .then(function(result) {
-        return result.json();
-    })
-    .then(function(data) {
-      console.log(data);
-    });
-
+  .then((result) => {
+    results = result.data;
+      return result.json();
+  })
+  .then((data) => {
+    results = data;
+    console.log(results);
+    return results;
+  });
 })
 
+function getJson() {
+
+}
 
 
 /*function showResults(results) {
