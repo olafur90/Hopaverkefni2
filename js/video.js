@@ -53,4 +53,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   results.appendChild(element);
 }
+
+fetch('../videos.json')
+  .then((result) => {
+    if(!result.ok) {
+      throw new Error('Non 200 status');
+    }
+
+    console.log(result.json);
+  })
+    .then((data) => {
+      showResults(data.results);
+    })
+
+
+
+/*
+document.addEventListener('DOMContentLoaded', () => {
+  let results;
+
+  fetch('../videos.json')
+    .then(function(result) {
+        return result.json();
+    })
+    .then(function(data) {
+      results = data;
+    });
+
+  console.log(results);
+  let x = results[1];
+  console.log(x);
+})
 */
