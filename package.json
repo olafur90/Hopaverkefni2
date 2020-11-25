@@ -8,22 +8,32 @@
     "browser-sync": "browser-sync start --server --files index.html sites/*.html styles.css",
     "sass": "node-sass styles/styles.scss styles.css",
     "sass-watch": "node-sass --source-map-embed --watch styles/styles.scss --recursive styles.css",
+    "rollup": "rollup -c",
+    "rollup-watch": "rollup -c -w",
     "dev": "concurrently npm:browser-sync npm:sass npm:sass-watch npm:node-sass eslint stylelint"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
     "browser-sync": "^2.26.13",
     "concurrently": "^5.3.0",
     "eslint": "^7.14.0",
     "node-sass": "^5.0.0",
+    "rollup": "^2.33.3",
+    "rollup-plugin-babel": "^4.4.0",
     "sass": "^1.29.0",
     "sass-watch": "^0.1.0",
     "stylelint": "^13.8.0"
   },
   "dependencies": {
-    "babel": "^6.23.0",
-    "rollup": "^2.33.3"
+    "@babel/polyfill": "^7.12.1",
+    "babel": "^6.23.0"
   }
 }
