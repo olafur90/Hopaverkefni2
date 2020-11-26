@@ -1,3 +1,12 @@
+/*
+gera þetta...
+<video width="400" controls>
+  <source src="videos/bunny.mp4">
+</video>
+*/
+const video = document.createElement('video');
+const src = document.createElement('source');
+
 const back = document.createElement('img');
 const next = document.createElement('img');
 const pause = document.createElement('img');
@@ -35,15 +44,34 @@ document.body.appendChild(play);
 document.body.appendChild(mute);
 document.body.appendChild(fullscreen);
 
+mute.addEventListener("click", function muteClick() {
+  //mute and unmute? video
+  console.log("muted");
+});
 
-pause.addEventListener("click", function pauseclick() {
+next.addEventListener("click", function nextClick() {
+  //jump forward 
+  console.log("3 seconds forwards");
+});
+
+back.addEventListener("click", function backClick() {
+  //jump back
+  console.log("3 seconds back");
+});
+
+fullscreen.addEventListener("click", function fullscreenClick() {
+  //enter fulscreen on the video
+  console.log("big screen");
+});
+
+pause.addEventListener("click", function pauseClick() {
   //pause video and make play appear
   console.log("paused");
   document.body.removeChild(pause);
   document.body.appendChild(play);
 });
 
-play.addEventListener("click", function playclick() {
+play.addEventListener("click", function playClick() {
   //play video and make pause appear
   console.log("play");
   document.body.removeChild(play);
