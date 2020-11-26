@@ -1,9 +1,55 @@
-const img = document.createElement('img');
+const back = document.createElement('img');
+const next = document.createElement('img');
+const pause = document.createElement('img');
+const play = document.createElement('img');
+const mute = document.createElement('img');
+const fullscreen = document.createElement('img');
 
-img.setAttribute('src', 'img/back.svg');
-img.setAttribute('alt', 'back button');
+back.setAttribute('src', 'img/back.svg');
+back.setAttribute('alt', 'back button');
+back.setAttribute('class', 'button');
 
-document.body.appendChild(img);
+next.setAttribute('src', 'img/next.svg');
+next.setAttribute('alt', 'next button');
+next.setAttribute('class', 'button');
+
+pause.setAttribute('src', 'img/pause.svg');
+pause.setAttribute('alt', 'pause button');
+pause.setAttribute('class', 'button');
+
+play.setAttribute('src', 'img/play.svg');
+play.setAttribute('alt', 'play button');
+play.setAttribute('class', 'button');
+
+mute.setAttribute('src', 'img/mute.svg');
+mute.setAttribute('alt', 'mute button');
+mute.setAttribute('class', 'button');
+
+fullscreen.setAttribute('src', 'img/fullscreen.svg');
+fullscreen.setAttribute('alt', 'fullscreen button');
+fullscreen.setAttribute('class', 'button');
+
+document.body.appendChild(back);
+document.body.appendChild(next);
+document.body.appendChild(play);
+document.body.appendChild(mute);
+document.body.appendChild(fullscreen);
+
+
+pause.addEventListener("click", function pauseclick() {
+  //pause video and make play appear
+  console.log("paused");
+  document.body.removeChild(pause);
+  document.body.appendChild(play);
+});
+
+play.addEventListener("click", function playclick() {
+  //play video and make pause appear
+  console.log("play");
+  document.body.removeChild(play);
+  document.body.appendChild(pause);
+});
+
 
 
 function el(name, ...children) {
