@@ -1,12 +1,3 @@
-/*
-gera þetta...
-<video width="400" controls>
-  <source src="videos/bunny.mp4">
-</video>
-*/
-const video = document.createElement('video');
-const src = document.createElement('source');
-
 const back = document.createElement('img');
 const next = document.createElement('img');
 const pause = document.createElement('img');
