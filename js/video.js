@@ -1,3 +1,5 @@
+const container = document.createElement('div');
+
 const buttdiv = document.createElement('div');
 const bdiv = document.createElement('div');
 const fdiv = document.createElement('div');
@@ -12,8 +14,10 @@ const play = document.createElement('img');
 const mute = document.createElement('img');
 const fullscreen = document.createElement('img');
 
-const video = document.createElement('video');
+const vid = document.createElement('video');
 const src = document.createElement('source');
+
+container.setAttribute('class', 'container');
 
 buttdiv.setAttribute('class', 'buttdiv');
 
@@ -42,13 +46,15 @@ fullscreen.setAttribute('alt', 'fullscreen button');
 fullscreen.setAttribute('class', 'button');
 
 // Einhvernvegin fá id???
-video.setAttribute('class', 'video');
-src.setAttribute('src', '../videos/bunny.mp4')
+vid.setAttribute('class', 'video');
+src.setAttribute('src', '../videos/bunny.mp4');
 
-document.body.appendChild(video);
-video.appendChild(src);
+document.body.appendChild(container);
 
-document.body.appendChild(buttdiv);
+container.appendChild(vid);
+vid.appendChild(src);
+
+container.appendChild(buttdiv);
 buttdiv.appendChild(bdiv);
 buttdiv.appendChild(pdiv);
 buttdiv.appendChild(mdiv);
@@ -61,49 +67,50 @@ mdiv.appendChild(mute);
 fudiv.appendChild(fullscreen);
 fdiv.appendChild(next);
 
-mute.addEventListener("click", function muteClick() {
-  //mute and unmute? video
-  if (video.muted === false) {
-    video.muted = true;
+mute.addEventListener('click', () => {
+  // mute and unmute? video
+  if (vid.muted === false) {
+    vid.muted = true;
   } else {
-    video.muted = false;
+    vid.muted = false;
   }
-  
 });
 
-next.addEventListener("click", function nextClick() {
-  //jump forward 
-  video.currentTime = video.currentTime + 3;
+next.addEventListener('click', () => {
+  // jump forward
+  vid.currentTime += 3;
 });
 
-back.addEventListener("click", function backClick() {
-  //jump back
-  video.currentTime = video.currentTime - 3;
+back.addEventListener('click', () => {
+  // jump back
+  vid.currentTime -= 3;
 });
 
-fullscreen.addEventListener("click", function fullscreenClick() {
-  //enter fullscreen on the video
-  video.requestFullscreen();
+fullscreen.addEventListener('click', () => {
+  // enter fullscreen on the video
+  vid.requestFullscreen();
 });
 
-pause.addEventListener("click", function pauseClick() {
-  //pause video and make play appear
-  video.pause();
+pause.addEventListener('click', () => {
+  // pause video and make play appear
+  vid.pause();
   pdiv.removeChild(pause);
   pdiv.appendChild(play);
 });
 
-play.addEventListener("click", function playClick() {
-  //play video and make pause appear
-  video.play();
+play.addEventListener('click', () => {
+  // play video and make pause appear
+  vid.play();
   pdiv.removeChild(play);
   pdiv.appendChild(pause);
 });
 
+/*
+let results;
 function el(name, ...children) {
   const element = document.createElement(name);
 
-  for (let child of children) { /* eslint-disable-line */
+  for (let child of children) { // eslint-disable-line
     if (typeof child === 'string') {
       element.appendChild(document.createTextNode(child));
     } else if (child) {
@@ -114,32 +121,26 @@ function el(name, ...children) {
   return element;
 }
 document.addEventListener('DOMContentLoaded', () => {
-  let results;
-
   fetch('../videos.json')
-  .then((result) => {
-    results = result.data;
+    .then((result) => {
+      results = result.data;
       return result.json();
-  })
-  .then((data) => {
-    results = data;
-    console.log(results);
-    return results;
-  });
+    })
+    .then((data) => {
+      results = data;
+      console.log(results);
+      return results;
+    });
 
   const body = el('body');
   body.appendChild(el('p', 'Gagn'));
-
-
-})
+});
 
 function getJson() {
 
 }
 
-
-function showResults(shresults) {
-
+function showResults(results) {
   const [{
     id,
     title,
@@ -151,9 +152,7 @@ function showResults(shresults) {
     related,
   }] = shresults;
 
-  const element =
-    el('img', poster);
-
+  const element = el('img', poster);
 
   results.appendChild(element);
 }
@@ -171,9 +170,6 @@ fetch('../videos.json')
       showResults(data.results);
     })
 
-
-
-/*
 document.addEventListener('DOMContentLoaded', () => {
   let results;
 

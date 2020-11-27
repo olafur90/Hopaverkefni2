@@ -21,6 +21,12 @@ header {
   margin: auto;
 }
 
+.container {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
 .button {
   width: 4rem;
   height: 4rem;
