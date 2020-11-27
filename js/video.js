@@ -1,3 +1,10 @@
+const buttdiv = document.createElement('div');
+const bdiv = document.createElement('div');
+const fdiv = document.createElement('div');
+const pdiv = document.createElement('div');
+const mdiv = document.createElement('div');
+const fudiv = document.createElement('div');
+
 const back = document.createElement('img');
 const next = document.createElement('img');
 const pause = document.createElement('img');
@@ -7,6 +14,8 @@ const fullscreen = document.createElement('img');
 
 const video = document.createElement('video');
 const src = document.createElement('source');
+
+buttdiv.setAttribute('class', 'buttdiv');
 
 back.setAttribute('src', 'img/back.svg');
 back.setAttribute('alt', 'back button');
@@ -36,14 +45,21 @@ fullscreen.setAttribute('class', 'button');
 video.setAttribute('class', 'video');
 src.setAttribute('src', '../videos/bunny.mp4')
 
-document.body.appendChild(back);
-document.body.appendChild(play);
-document.body.appendChild(mute);
-document.body.appendChild(fullscreen);
-document.body.appendChild(next);
-
 document.body.appendChild(video);
 video.appendChild(src);
+
+document.body.appendChild(buttdiv);
+buttdiv.appendChild(bdiv);
+buttdiv.appendChild(pdiv);
+buttdiv.appendChild(mdiv);
+buttdiv.appendChild(fudiv);
+buttdiv.appendChild(fdiv);
+
+bdiv.appendChild(back);
+pdiv.appendChild(play);
+mdiv.appendChild(mute);
+fudiv.appendChild(fullscreen);
+fdiv.appendChild(next);
 
 mute.addEventListener("click", function muteClick() {
   //mute and unmute? video
@@ -73,15 +89,15 @@ fullscreen.addEventListener("click", function fullscreenClick() {
 pause.addEventListener("click", function pauseClick() {
   //pause video and make play appear
   video.pause();
-  document.body.removeChild(pause);
-  document.body.appendChild(play);
+  pdiv.removeChild(pause);
+  pdiv.appendChild(play);
 });
 
 play.addEventListener("click", function playClick() {
   //play video and make pause appear
   video.play();
-  document.body.removeChild(play);
-  document.body.appendChild(pause);
+  pdiv.removeChild(play);
+  pdiv.appendChild(pause);
 });
 
 function el(name, ...children) {
