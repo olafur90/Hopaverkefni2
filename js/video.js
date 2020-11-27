@@ -57,16 +57,16 @@ mute.addEventListener("click", function muteClick() {
 
 next.addEventListener("click", function nextClick() {
   //jump forward 
-  console.log("3 seconds forwards");
+  video.currentTime = video.currentTime + 3;
 });
 
 back.addEventListener("click", function backClick() {
   //jump back
-  console.log("3 seconds back");
+  video.currentTime = video.currentTime - 3;
 });
 
 fullscreen.addEventListener("click", function fullscreenClick() {
-  //enter fulscreen on the video
+  //enter fullscreen on the video
   video.requestFullscreen();
 });
 
