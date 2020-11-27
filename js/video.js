@@ -5,6 +5,9 @@ const play = document.createElement('img');
 const mute = document.createElement('img');
 const fullscreen = document.createElement('img');
 
+const video = document.createElement('video');
+const src = document.createElement('source');
+
 back.setAttribute('src', 'img/back.svg');
 back.setAttribute('alt', 'back button');
 back.setAttribute('class', 'button');
@@ -29,15 +32,27 @@ fullscreen.setAttribute('src', 'img/fullscreen.svg');
 fullscreen.setAttribute('alt', 'fullscreen button');
 fullscreen.setAttribute('class', 'button');
 
+// Einhvernvegin fá id???
+video.setAttribute('class', 'video');
+src.setAttribute('src', '../videos/bunny.mp4')
+
 document.body.appendChild(back);
-document.body.appendChild(next);
 document.body.appendChild(play);
 document.body.appendChild(mute);
 document.body.appendChild(fullscreen);
+document.body.appendChild(next);
+
+document.body.appendChild(video);
+video.appendChild(src);
 
 mute.addEventListener("click", function muteClick() {
   //mute and unmute? video
-  console.log("muted");
+  if (video.muted === false) {
+    video.muted = true;
+  } else {
+    video.muted = false;
+  }
+  
 });
 
 next.addEventListener("click", function nextClick() {
@@ -52,24 +67,22 @@ back.addEventListener("click", function backClick() {
 
 fullscreen.addEventListener("click", function fullscreenClick() {
   //enter fulscreen on the video
-  console.log("big screen");
+  video.requestFullscreen();
 });
 
 pause.addEventListener("click", function pauseClick() {
   //pause video and make play appear
-  console.log("paused");
+  video.pause();
   document.body.removeChild(pause);
   document.body.appendChild(play);
 });
 
 play.addEventListener("click", function playClick() {
   //play video and make pause appear
-  console.log("play");
+  video.play();
   document.body.removeChild(play);
   document.body.appendChild(pause);
 });
-
-
 
 function el(name, ...children) {
   const element = document.createElement(name);
@@ -97,6 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(results);
     return results;
   });
+
+  const body = el('body');
+  body.appendChild(el('p', 'Gagn'));
+
+
 })
 
 function getJson() {
@@ -104,7 +122,7 @@ function getJson() {
 }
 
 
-/*function showResults(results) {
+function showResults(shresults) {
 
   const [{
     id,
@@ -115,7 +133,7 @@ function getJson() {
     poster,
     video,
     related,
-  }] = results;
+  }] = shresults;
 
   const element =
     el('img', poster);
@@ -124,6 +142,7 @@ function getJson() {
   results.appendChild(element);
 }
 
+/*
 fetch('../videos.json')
   .then((result) => {
     if(!result.ok) {
