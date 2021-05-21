@@ -10,3 +10,4 @@ Upplýsingar um okkur:
 Nafn: Hjörtur Sölvi Steinarsson, Hí Notandarnafn: hss59@hi.is, Github Notandarnafn: Hss59 
 Nafn: Ólafur Pálsson, HÍ Notendanafn: olp10@hi.is, Github Notendanafn: olafur90 
 Nafn: Broddi Gunnarsson, HÍ Notendanafn: brg67@hi.is, Github Notendanafn: BroddiGunnarsson
+test
